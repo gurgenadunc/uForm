@@ -1,0 +1,38 @@
+<div class="home">
+    <div class="home__logo-container">
+        <img src="../../assets/logo.svg" alt="uForm-logo" class="home__logo">
+    </div>
+    <div class="home__slogan-container">
+        <p>
+            Easily create and share forms and questionaries
+        </p>
+    </div> 
+    <div class="home__actions" *ngIf="isLoggedIn">
+        <button 
+            class="home__login uform-button"
+            [routerLink]="['/sign-in']"
+        >
+            Log In
+        </button>
+        <button 
+            class="home__about uform-button"
+            [routerLink]="['/about']"
+        >
+            About
+        </button>
+    </div>
+    <div class="home__action" *ngIf="isLoggedIn">
+        <button 
+            class="home__create-form uform-button"
+            [routerLink]="['/create-form']"
+        >
+            Create a new form
+        </button>
+        <button 
+            class="home__manage-forms uform-button"
+            [routerLink]="['/manage-forms']"
+        >
+            Manage my forms
+        </button>
+    </div>
+</div>

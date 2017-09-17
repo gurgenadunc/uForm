@@ -1,0 +1,29 @@
+.signin {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    &__signin, &__signup, &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+    }
+
+    &__separator {
+        position: absolute;
+        height: 100%;
+        width: 4px;
+        background: black;
+    }
+}

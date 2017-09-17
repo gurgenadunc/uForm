@@ -1,0 +1,72 @@
+<div class="signin">
+    <div class="signin__container">
+
+        <div class="signin__signin">
+            <span class="signin__signin-title">
+                Sign In
+            </span>
+            <form class="signin__form" [formGroup]="signInForm">
+                <input 
+                    type="text" placeholder="Email address" class="uform-input" formControlName="email"
+                >
+                <div class="signin__errors-container">
+                    <span *ngIf="signInFormErrors?.email" class="uform-error-message">
+                        A valid email address is required
+                    </span>
+                </div>
+                <input 
+                    type="password" placeholder="Password" class="uform-input" formControlName="password"
+                >
+                <div class="signin__errors-container">
+                    <span *ngIf="signInFormErrors?.password" class="uform-error-message">
+                        Required field
+                    </span>
+                </div>
+
+            </form>
+            <button 
+                class="signin__signin-button uform-button"
+                (click)="signin()"
+            >
+                SIGN IN
+            </button>
+            <span class="signin__alternate-signin">
+                or sign in with
+            </span>
+            <div class="signin__social-icons">
+                
+            </div>
+        </div>
+        <div class="signin__separator">
+        </div>
+        <div class="signin__signup">
+            <span class="signin__signup-title">
+                Sign Up For Free
+            </span>
+            <form class="signin__form" [formGroup]="signUpForm">
+                <input type="text" placeholder="Full name" class="uform-input" formControlName="fullName">  
+                <input type="text" placeholder="Email address" class="uform-input" formControlName="email">
+                <div class="signin__errors-container">
+                    <span *ngIf="signUpFormErrors?.email" class="uform-error-message">
+                        A valid email address is required
+                    </span>
+                </div>
+                <input type="password" placeholder="Password" class="uform-input" formControlName="password">
+                <div class="signin__errors-container">
+                    <span *ngIf="signUpFormErrors?.password" class="uform-error-message">
+                        Required field
+                    </span>
+                </div>
+                <input type="password" placeholder="Retype password" class="uform-input" formControlName="retypePassword">
+                <div class="signin__errors-container">
+                    <span *ngIf="signUpFormErrors?.retypePassword" class="uform-error-message">
+                        The passwords do not match
+                    </span>
+                </div>
+            </form>
+            <button class="signin__signup-button uform-button" (click)="signup()">
+                SIGN UP
+            </button>
+        </div>
+    </div>
+</div>

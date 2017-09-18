@@ -7,14 +7,16 @@ import { CreateFormComponent } from './create-form/create-form.component';
 import { ManageFormsComponent } from './manage-forms/manage-forms.component';
 import { ResponsesComponent } from './responses/responses.component';
 import { AboutComponent } from './about/about.component';
+import { AuthGuard } from 'app/user/auth-guard.service';
+
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'sign-in', component: SignInComponent },
-    { path: 'admin', component: AdminPanelComponent },
-    { path: 'create-form', component: CreateFormComponent },
-    { path: 'manage-forms', component: ManageFormsComponent },
-    { path: 'responses', component: ResponsesComponent },
+    { path: 'admin', canActivate: [ AuthGuard], component: AdminPanelComponent },
+    { path: 'create-form', canActivate: [ AuthGuard], component: CreateFormComponent },
+    { path: 'manage-forms', canActivate: [ AuthGuard], component: ManageFormsComponent },
+    { path: 'responses', canActivate: [ AuthGuard], component: ResponsesComponent },
     { path: 'about', component: AboutComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

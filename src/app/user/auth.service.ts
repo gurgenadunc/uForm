@@ -19,7 +19,7 @@ export class AuthService {
 
       return this.http.post('http://localhost:2017/api/login', JSON.stringify(userDetails), options)
         .do((response: Response) => {
-            if(response.json().success) {
+            if (response.json().success) {
               this.currentUser = <User>response.json().message;
               let userObj: any  = {};
               userObj.user = response.json().message;
@@ -31,6 +31,24 @@ export class AuthService {
         })
       .catch(this.handleError);
   }
+
+  logout(): void {
+    this.currentUser = null;
+    localStorage.removeItem('currentUser');
+  }
+
+  public  isLoggedIn(): boolean {
+    try {
+        const theUser: any = JSON.parse(localStorage.getItem('currentUser'));
+        if (theUser) {
+            this.currentUser = theUser.user;
+        }
+    } catch (e) {
+        return false;
+    }
+    
+    return !!this.currentUser;
+}
 
   private handleError(error: Response) {
       console.error(error);

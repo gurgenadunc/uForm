@@ -13,8 +13,9 @@ import { ManageFormsComponent } from './manage-forms/manage-forms.component';
 import { ResponsesComponent } from './responses/responses.component';
 import { AboutComponent } from './about/about.component';
 import { FormFunctions } from './generics/form-functions.service';
-import { UserService } from "app/user/user.service";
-import { AuthService } from "app/user/auth.service";
+import { UserService } from 'app/user/user.service';
+import { AuthService } from 'app/user/auth.service';
+import { AuthGuard } from 'app/user/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { AuthService } from "app/user/auth.service";
     FormsModule,
     HttpModule
   ],
-  providers: [FormFunctions, UserService, AuthService],
+  providers: [FormFunctions, UserService, AuthService, AuthGuard],
   bootstrap: [RootComponent]
 })
 export class AppModule { }

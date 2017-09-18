@@ -72,6 +72,7 @@ exports.login = function(req, res, next){
 }
 
 exports.authenticate = function(req, res, next){
+    console.log('authenticate');
 	var token = req.body.token || req.query.token || req.headers['authorization'];
 	if (token) {
 		jwt.verify(token, config.secret, function(err, decoded) {			
